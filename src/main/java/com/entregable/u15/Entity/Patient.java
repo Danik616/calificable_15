@@ -1,9 +1,12 @@
 package com.entregable.u15.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity(name="paciente")
@@ -18,6 +21,9 @@ public class Patient {
     private long dni;
     private int age;
     private long tel;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
     
     public Patient(String name, String surname, long dni, int age, long tel) {
         this.name = name;

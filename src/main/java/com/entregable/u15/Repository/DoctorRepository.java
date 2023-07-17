@@ -10,7 +10,7 @@ import com.entregable.u15.Entity.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long>{
     
-    @Query("FROM doctor WHERE speciality = :speciality")
+    @Query("FROM doctor WHERE speciality.idSpeciality = :speciality")
     public List<Doctor> obtenerDoctoresPorEspecialidad(@Param(value="speciality")int speciality);
 
     @Query("FROM doctor WHERE idDoctor= :id")

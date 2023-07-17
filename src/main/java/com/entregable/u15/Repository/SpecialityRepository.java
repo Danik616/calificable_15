@@ -8,6 +8,6 @@ import com.entregable.u15.Entity.Speciality;
 
 public interface SpecialityRepository extends JpaRepository<Speciality, Integer>{
     
-    @Query("FROM specialist WHERE idSpeciality = :id")
+    @Query("FROM speciality WHERE WHERE idSpeciality = :id")
     public Speciality findById(@Param(value ="id")int id);
 }

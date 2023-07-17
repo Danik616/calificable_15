@@ -1,10 +1,13 @@
 package com.entregable.u15.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity(name="specialist")
@@ -16,6 +19,9 @@ public class Speciality {
     private int idSpeciality;
     private String name;
     
+    @OneToMany(mappedBy = "speciality")
+    private List<Doctor> doctors;
+
     public Speciality() {
     }
 

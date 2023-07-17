@@ -15,10 +15,10 @@ import com.entregable.u15.Services.PatientService;
 
 @RestController
 @RequestMapping("/api/patient")
-public class patientController {
+public class PatientController {
     private final PatientService patientService;
 
-    public patientController(PatientService patientService) {
+    public PatientController(PatientService patientService) {
         this.patientService = patientService;
     }
 
@@ -31,7 +31,7 @@ public class patientController {
     public ResponseEntity<String> savePatient(@RequestBody PatientDto patientDto){
         boolean response= patientService.savePatient(patientDto);
         if(response == true){
-            return ResponseEntity.ok().body("Paciente guardado correctamente");
+            return ResponseEntity.accepted().body("Paciente guardado correctamente");
         }else{
             return ResponseEntity.badRequest().body("Paciente ya existente");
         }
